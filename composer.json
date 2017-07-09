@@ -1,0 +1,41 @@
+{
+	"name": "bestog/BTG",
+	"description": "A PHP functions library. Useful and simple.",
+	"keywords": [
+		"bestog",
+		"functions",
+		"useful",
+		"php"
+	],
+	"homepage": "https://github.com/bestog/BTG",
+	"license": "Apache 2.0",
+	"authors": [
+		{
+			"name": "Sebastian",
+			"email": "github@bestog.de",
+			"homepage": "http://bestog.de",
+			"role": "Developer"
+		}
+	],
+	"require": {
+	},
+	"require-dev": {
+		"phpunit/phpunit": "5.*"
+	},
+	"autoload": {
+		"psr-4": {
+			"bestog\\": "src"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"bestog\\": "tests"
+		}
+	},
+	"scripts": {
+		"test": "vendor/bin/phpunit"
+	},
+	"config": {
+		"sort-packages": true
+	}
+}
