@@ -2,7 +2,7 @@
 <phpunit
         backupGlobals="true"
         colors="true"
-        stopOnFailure="false"
+        stopOnFailure="true"
         bootstrap="tests/bootstrap.php">
 
     <testsuite name="Test Suite">
