@@ -7,7 +7,7 @@ namespace bestog;
  *
  * @package bestog
  */
-class Test extends \PHPUnit_Framework_TestCase {
+class Test extends \PHPUnit\Framework\TestCase {
 
 	/**
 	 * Test: isTimestamp
