@@ -85,4 +85,42 @@ class BTG {
 		return null;
 	}
 
+	/**
+	 * Calculate distance between two coordinates
+	 *
+	 * @param array $first  [0] Latitude & [1] Longitude (as float/string) (Example: [52.5243700, 13.4105300])
+	 * @param array $second [0] Latitude & [1] Longitude (as float/string) (Example: [48.137154, 11.576124])
+	 *
+	 * @return int metres (Example: 504845m / km = 504.845)
+	 */
+	public static function coordinatesDistance($first, $second) {
+		if (is_array($first) && is_array($second) && count($first) === 2 && count($second) === 2) {
+			// Convert values in floats (as a precaution)
+			$first  = \array_map('floatval', $first);
+			$second = \array_map('floatval', $second);
+			// Calculation
+			$theta = $first[1] - $second[1];
+			$dist  = sin(deg2rad($first[0])) * sin(deg2rad($second[0])) + cos(deg2rad($first[0])) * cos(deg2rad($second[0])) * cos(deg2rad($theta));
+			$miles = rad2deg(acos($dist)) * 60 * 1.1515;
+			// Round (as a precaution) and return the result
+			return (int)(($miles * 1.609344) * 1000);
+		}
+		return null;
+	}
+
+	/**
+	 * Check if all values as parameters are not empty.
+	 * Number of parameters unlimited.
+	 *
+	 * @return bool
+	 */
+	public static function nothingEmpty() {
+		foreach (func_get_args() as $arg) {
+			if (empty($arg)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 }

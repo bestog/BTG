@@ -17,6 +17,7 @@ class Test extends TestCase {
 	public function test_isTimestamp() {
 		static::assertEquals(true, BTG::isTimestamp(time()));
 		static::assertEquals(true, BTG::isTimestamp('123456789'));
+		static::assertEquals(true, BTG::isTimestamp(123456789));
 		static::assertEquals(false, BTG::isTimestamp('1970-01-01 01:00:00'));
 		static::assertEquals(false, BTG::isTimestamp('12:00:00'));
 	}
@@ -26,7 +27,9 @@ class Test extends TestCase {
 	 */
 	public function test_datetime() {
 		$nowTime = time();
-		static::assertEquals(date('Y-m-d H:i:s', $nowTime), BTG::datetime($nowTime));
+		$datetime = date('Y-m-d H:i:s', $nowTime);
+		static::assertEquals($datetime, BTG::datetime($nowTime));
+		static::assertEquals($datetime, BTG::datetime(date('d.m.Y H:i:s', $nowTime)));
 	}
 
 	/**
@@ -69,6 +72,32 @@ class Test extends TestCase {
 		static::assertEquals(['name' => 'Bob'], BTG::getNestedArray($nestedArray, 'name', 'Bob'));
 		// wrong
 		static::assertEquals(null, BTG::getNestedArray($nestedArray, 'name', 'Alice'));
+	}
+
+	/**
+	 * Test: coordinatesDistance
+	 */
+	public function test_coordinatesDistance() {
+		// correct
+		static::assertEquals(504845, BTG::coordinatesDistance([52.5243700, 13.4105300], [48.137154, 11.576124]));
+		static::assertEquals(504845, BTG::coordinatesDistance(['52.5243700', '13.4105300'], ['48.137154', '11.576124']));
+		// wrong
+		static::assertEquals(null, BTG::coordinatesDistance([52.5243700], [48.137154]));
+		static::assertEquals(null, BTG::coordinatesDistance(['Berlin'], ['München']));
+	}
+
+	/**
+	 * Test: nothingEmpty
+	 */
+	public function test_nothingEmpty() {
+		$a = $b = $c = $d = $e = $f = 'val';
+		$y = '';
+		$z = null;
+
+		static::assertTrue(BTG::nothingEmpty($a, $b, $c, $d));
+		static::assertNotTrue(BTG::nothingEmpty($a, $b, $c, $d, $z));
+		static::assertNotTrue(BTG::nothingEmpty($a, $b, $c, $d, $y));
+		static::assertNotTrue(BTG::nothingEmpty($z, $y));
 	}
 
 }
