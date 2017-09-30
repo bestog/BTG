@@ -1,5 +1,5 @@
 # BTG
-[![Build Status](https://travis-ci.org/bestog/btg.svg?branch=master)](https://travis-ci.org/bestog/BTG)
+[![Build Status](https://travis-ci.org/bestog/btg.svg?branch=master)](https://travis-ci.org/bestog/btg)
 
 A PHP functions library. Useful and simple.
 
