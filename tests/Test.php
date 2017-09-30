@@ -2,12 +2,14 @@
 
 namespace bestog;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Class Test
  *
  * @package bestog
  */
-class Test extends \PHPUnit\Framework\TestCase {
+class Test extends TestCase {
 
 	/**
 	 * Test: isTimestamp

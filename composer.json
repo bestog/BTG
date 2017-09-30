@@ -7,13 +7,13 @@
 		"useful",
 		"php"
 	],
-	"homepage": "https://github.com/bestog/BTG",
+	"homepage": "https://github.com/bestog/btg",
 	"license": "Apache 2.0",
 	"authors": [
 		{
 			"name": "Sebastian",
 			"email": "github@bestog.de",
-			"homepage": "http://bestog.de",
+			"homepage": "https://bestog.de",
 			"role": "Developer"
 		}
 	],
