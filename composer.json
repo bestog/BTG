@@ -8,7 +8,7 @@
 		"php"
 	],
 	"homepage": "https://github.com/bestog/btg",
-	"license": "Apache 2.0",
+	"license": "Apache-2.0",
 	"authors": [
 		{
 			"name": "Sebastian",
@@ -17,10 +17,8 @@
 			"role": "Developer"
 		}
 	],
-	"require": {
-	},
 	"require-dev": {
-		"phpunit/phpunit": "*"
+		"phpunit/phpunit": "7.*"
 	},
 	"autoload": {
 		"psr-4": {
